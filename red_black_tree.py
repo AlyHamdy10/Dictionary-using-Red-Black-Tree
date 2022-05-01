@@ -52,7 +52,8 @@ class RedBlackTree():
 
         if node.parent.parent == None:
             return
-        # function to fix rbtree due to insert
+        self.fix_insert(node):
+
     def fix_insert(self, k):
         while k.parent.color == 1:
             if k.parent == k.parent.parent.right:
@@ -86,6 +87,7 @@ class RedBlackTree():
             if k == self.root:
                 break
             self.root.color = 0
+
     def left_rotate(self, x):
         y = x.right
         x.right = y.left
