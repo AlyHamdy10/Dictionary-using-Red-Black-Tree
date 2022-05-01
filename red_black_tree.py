@@ -65,8 +65,10 @@ class RedBlackTree():
                 else:
                     if k == k.parent.left:
                         k = k.parent
-                        # function to right_rotate(k)
-                    # to be done
+                        self.right_rotate(k)
+                    k.parent.color = 0
+                    k.parent.parent.color = 1
+                    self.left_rotate(k.parent.parent)
             else:
                 uncle = k.parent.parent.right
                 if uncle.color == 1:
@@ -77,10 +79,10 @@ class RedBlackTree():
                 else:
                     if k == k.parent.right:
                         k = k.parent
-                        #function to left_rotate(k)
+                        self.left_rotate(k)
                     k.parent.color = 0
                     k.parent.parent.color = 1
-                    #function to right_rotate(k.parent.parent)
+                    self.right_rotate(k.parent.parent)
             if k == self.root:
                 break
             self.root.color = 0
