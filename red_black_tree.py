@@ -50,11 +50,12 @@ class RedBlackTree():
 
         if node.parent == None:
             node.color = 0
-            return
+            return 0
 
         if node.parent.parent == None:
-            return
+            return 0
         self.fix_insert(node)
+        return 0
 
     def fix_insert(self, k):
         while k.parent.color == 1:
@@ -146,23 +147,3 @@ def str_compare(str1, str2):
     elif first < second:
         return -1
     return 1
-
-
-tree = RedBlackTree()
-
-# tree.insert('Mariam')
-# tree.insert('Aly')
-# tree.insert('Nayrouz')
-# tree.insert('Zawawy')
-# tree.insert('Magdy')
-# tree.insert('hamdy')
-# tree.insert('ahmed')
-tree.insert(5)
-tree.insert(15)
-tree.insert(20)
-tree.insert(30)
-tree.insert(40)
-
-
-tree.print_inorder(tree.root)
-print(str(tree.height(tree.root)))
