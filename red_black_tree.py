@@ -131,6 +131,12 @@ class RedBlackTree():
 
 
 def str_compare(str1, str2):
+    if isinstance(str1, int) and isinstance(str2, int):
+        if str1 == str2:
+            return 0
+        elif str1 < str2:
+            return -1
+        return 1
     first = str1.lower()
     second = str2.lower()
     if first == second:
