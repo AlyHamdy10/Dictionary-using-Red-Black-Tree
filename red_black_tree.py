@@ -17,17 +17,18 @@ class RedBlackTree():
         self.root = self.nill  # setting the RBTree's root as NILL as it is empty
         self.count = 0
         # some attributes were not added here since they were added in node declaration
+
     def insert(self, word):
         node = Node(word)
         node.left = self.nill
         node.right = self.nill
-        node.color = 1
+        node.color = 1  # to be removed
 
         # fixing new node's attributes
         prev = None
         current = self.root
 
-        while current != self.Nill:
+        while current != self.nill:
             prev = current
             if node.word.lower == current.word.lower:
                 return -1       # Error Indicating word already exists
@@ -52,7 +53,7 @@ class RedBlackTree():
 
         if node.parent.parent == None:
             return
-        self.fix_insert(node):
+        self.fix_insert(node)
 
     def fix_insert(self, k):
         while k.parent.color == 1:
@@ -60,7 +61,7 @@ class RedBlackTree():
                 uncle = k.parent.parent.left
                 if uncle.color == 1:
                     uncle.color = 0
-                    k.parent = 0
+                    k.parent.color = 0
                     k.parent.parent.color = 1
                     k = k.parent.parent
                 else:
@@ -144,3 +145,23 @@ def str_compare(str1, str2):
     elif first < second:
         return -1
     return 1
+
+
+tree = RedBlackTree()
+
+# tree.insert('Mariam')
+# tree.insert('Aly')
+# tree.insert('Nayrouz')
+# tree.insert('Zawawy')
+# tree.insert('Magdy')
+# tree.insert('hamdy')
+# tree.insert('ahmed')
+tree.insert(5)
+tree.insert(15)
+tree.insert(20)
+tree.insert(30)
+tree.insert(40)
+
+
+tree.print_inorder(tree.root)
+print(str(tree.height(tree.root)))
