@@ -30,9 +30,10 @@ class RedBlackTree():
 
         while current != self.nill:
             prev = current
-            if node.word.lower == current.word.lower:
+            comp = str_compare(node.word, current.word)
+            if comp == 0:
                 return -1       # Error Indicating word already exists
-            elif node.word.lower < current.word.lower:
+            elif comp == -1:
                 current = current.left
             else:
                 current = current.right
@@ -42,7 +43,7 @@ class RedBlackTree():
         # fixing parents attributes
         if prev == None:
             self.root = node
-        elif node.word.lower < prev.word.lower:
+        elif comp == -1:
             prev.left = node
         else:
             prev.right = node
