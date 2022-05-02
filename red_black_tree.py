@@ -117,6 +117,14 @@ class RedBlackTree():
             x.parent.left = y
         y.right = x
         x.parent = y
+
+    def print_inorder(self, node):
+        if node != self.nill:
+            self.print_inorder(node.left)
+            print(str(node.word))
+            self.print_inorder(node.right)
+
+
 def str_compare(str1, str2):
     first = str1.lower()
     second = str2.lower()
