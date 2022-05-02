@@ -117,3 +117,11 @@ class RedBlackTree():
             x.parent.left = y
         y.right = x
         x.parent = y
+def str_compare(str1, str2):
+    first = str1.lower()
+    second = str2.lower()
+    if first == second:
+        return 0
+    elif first < second:
+        return -1
+    return 1
