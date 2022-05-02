@@ -124,6 +124,11 @@ class RedBlackTree():
             print(str(node.word))
             self.print_inorder(node.right)
 
+    def height(self, node):
+        if node == self.nill:
+            return 0
+        return 1 + max(self.height(node.left), self.height(node.right))
+
 
 def str_compare(str1, str2):
     first = str1.lower()
