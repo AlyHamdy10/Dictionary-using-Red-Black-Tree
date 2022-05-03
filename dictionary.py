@@ -5,6 +5,8 @@ def load_file(tree, filename):
     file = open(filename, 'r')
     for each in file:
         insert_string(tree, each)
+    print('Tree Height = ' + str(tree.height(dictionary.root)))
+    print('Tree size = ' + str(tree.count))
 
 
 def insert_string(tree, string, mode=0):
