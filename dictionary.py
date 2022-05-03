@@ -24,4 +24,6 @@ def search_file(tree, key):
         print("FOUND")
 
 
+dictionary = RedBlackTree()
+load_file(dictionary, "EN-US-Dictionary.txt")
 
