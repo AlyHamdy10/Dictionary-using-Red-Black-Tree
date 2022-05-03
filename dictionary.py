@@ -16,6 +16,12 @@ def insert_string(tree, string, mode=0):
         print("Size = " + str(tree.count))
 
 
+def search_file(tree, key):
+    habal = tree.search(tree.root, key)
+    if habal == tree.nill:
+        print("NOT FOUND")
+    else:
+        print("FOUND")
 
 
 
