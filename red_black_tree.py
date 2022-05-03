@@ -132,6 +132,17 @@ class RedBlackTree():
             return 0
         return 1 + max(self.height(node.left), self.height(node.right))
 
+    def search(self, node, key):
+        while node != self.nill:
+            comp = str_compare(key, node.word)
+            if comp == 0:
+                return node
+            elif comp == -1:
+                node = node.left
+            else:
+                node = node.right
+        return node
+
 
 def str_compare(str1, str2):
     if isinstance(str1, int) and isinstance(str2, int):
