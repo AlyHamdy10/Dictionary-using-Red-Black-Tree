@@ -6,12 +6,16 @@ def load(tree, filename="EN-US-Dictionary.txt"):
     print_dash("Loading \"" + filename + "\" into Dictionary")
     load_file(tree, filename)
     print_properties(dictionary)
+    file = open(filename, 'r')
+    for each in file:
+        dictionary.insert(each)
+    print_properties(tree)
     print_dash("Loading Complete", 1)
 
 
 def insert(tree, string):
     print("-"*10 + "Inserting \"" + string + "\" into Dictionary" + "-"*10)
-    r = insert_string(tree, string)
+    r = dictionary.search(dictionary.root, string)
     if r == -1:
         print_arrow("ERROR: Word already in the dictionary")
         print_dash("Insertion Failed", 1)
@@ -22,7 +26,7 @@ def insert(tree, string):
 
 def search(tree, key):
     print_dash("Searching for \"" + key + "\" in Dictionary")
-    hold = tree.search(tree.root, key)
+    hold = dictionary.search(tree.root, key)
     if hold == tree.nill:
         print_arrow("NOT FOUND")
     else:
